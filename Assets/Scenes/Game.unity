@@ -746,7 +746,7 @@ GameObject:
   - component: {fileID: 241806986}
   - component: {fileID: 241806988}
   m_Layer: 5
-  m_Name: AchevementButton
+  m_Name: AchievementMenuButtonBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -817,7 +817,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   achievementDialog: {fileID: 2041414823}
-  hideButton: {fileID: 0}
 --- !u!1 &326658500
 GameObject:
   m_ObjectHideFlags: 0
@@ -1392,6 +1391,7 @@ GameObject:
   - component: {fileID: 565315695}
   - component: {fileID: 565315694}
   - component: {fileID: 565315693}
+  - component: {fileID: 565315696}
   m_Layer: 0
   m_Name: PlayerLevelBar
   m_TagString: Untagged
@@ -1412,7 +1412,7 @@ RectTransform:
   - {fileID: 830827853}
   - {fileID: 451483142}
   m_Father: {fileID: 1310162944}
-  m_RootOrder: 3
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1466,6 +1466,58 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 565315691}
   m_CullTransparentMesh: 0
+--- !u!114 &565315696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 565315691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 565315694}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2051909105}
+        m_MethodName: ShowLeaderboards
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &595497496
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,7 +1877,7 @@ GameObject:
   - component: {fileID: 785985742}
   - component: {fileID: 785985744}
   m_Layer: 5
-  m_Name: AchievementButton
+  m_Name: AchievementMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1953,7 +2005,7 @@ GameObject:
   - component: {fileID: 796630576}
   - component: {fileID: 796630575}
   m_Layer: 5
-  m_Name: ThemeButton
+  m_Name: Button3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2085,8 +2137,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0.00001049, y: 0.000005722}
+  m_SizeDelta: {x: 128, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &820876170
 MonoBehaviour:
@@ -2109,18 +2161,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Achievements
 --- !u!222 &820876171
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2384,7 +2436,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Sign in
 --- !u!222 &933783771
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7456,7 +7508,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -47.999992}
+  m_AnchoredPosition: {x: 0, y: 60.3}
   m_SizeDelta: {x: 128, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1063959818
@@ -7471,7 +7523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7485,7 +7537,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -7533,7 +7585,7 @@ RectTransform:
   - {fileID: 1622401626}
   - {fileID: 1007482883}
   m_Father: {fileID: 1310162944}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -7590,10 +7642,16 @@ MonoBehaviour:
   - {fileID: 1949841431}
   - {fileID: 1806097210}
   - {fileID: 796630575}
+  - {fileID: 2057296710}
+  - {fileID: 1517057754}
+  - {fileID: 1335022936}
   themes:
-  - {fileID: 4900000, guid: 35f070a179b8f43fe90105e66e8d1932, type: 3}
-  - {fileID: 4900000, guid: 4412453db76864144bfd794d9fbd67fd, type: 3}
-  - {fileID: 4900000, guid: 9861ae3fc9d168041b6595d0133a3063, type: 3}
+  - {fileID: 4900000, guid: 682ec20abe0644707ace500e6d8d8567, type: 3}
+  - {fileID: 4900000, guid: 5b37bf51aa6d84fcfa3b822952124c29, type: 3}
+  - {fileID: 4900000, guid: b8af7bf12fd004cbdacc5ff0f80d6f67, type: 3}
+  - {fileID: 4900000, guid: 57836a590110046f9abeef0945391ab8, type: 3}
+  - {fileID: 4900000, guid: bfc0602375d81407582337337e9d21f6, type: 3}
+  - {fileID: 4900000, guid: 6fc3db56b39794a8098b62fe1f143107, type: 3}
   miniMenu: {fileID: 1480231626}
 --- !u!225 &1149679261
 CanvasGroup:
@@ -7641,7 +7699,7 @@ RectTransform:
   - {fileID: 1195740761}
   - {fileID: 421181036}
   m_Father: {fileID: 1310162944}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -7712,7 +7770,7 @@ RectTransform:
   - {fileID: 135655475}
   - {fileID: 1703986896}
   m_Father: {fileID: 1310162944}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -8070,11 +8128,11 @@ RectTransform:
   - {fileID: 777829244}
   - {fileID: 1400147039}
   - {fileID: 47293960}
-  - {fileID: 565315692}
   - {fileID: 1480231626}
   - {fileID: 1155132117}
   - {fileID: 1149679257}
   - {fileID: 1191514771}
+  - {fileID: 565315692}
   - {fileID: 241806985}
   - {fileID: 2041414823}
   m_Father: {fileID: 0}
@@ -8737,7 +8795,7 @@ RectTransform:
   m_Children:
   - {fileID: 20261365}
   m_Father: {fileID: 1310162944}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -9079,8 +9137,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1621043520}
   - component: {fileID: 1621043521}
+  - component: {fileID: 1621043523}
+  - component: {fileID: 1621043522}
   m_Layer: 5
-  m_Name: AchievementButton
+  m_Name: PlayAchievementButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9102,8 +9162,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: -64.00003}
+  m_SizeDelta: {x: 128, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1621043521
 MonoBehaviour:
@@ -9140,7 +9200,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1621043522}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -9157,6 +9217,40 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1621043522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1621043519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.8773585, g: 0.6083571, b: 0.6537079, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1621043523
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1621043519}
+  m_CullTransparentMesh: 0
 --- !u!1 &1622401625
 GameObject:
   m_ObjectHideFlags: 0
@@ -9657,7 +9751,7 @@ GameObject:
   - component: {fileID: 1806097211}
   - component: {fileID: 1806097210}
   m_Layer: 5
-  m_Name: ThemeButton
+  m_Name: Button2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9915,7 +10009,7 @@ GameObject:
   - component: {fileID: 1949841432}
   - component: {fileID: 1949841431}
   m_Layer: 5
-  m_Name: ThemeButton
+  m_Name: Button1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10409,6 +10503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21547d388190941478c4fd30b00fb63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelBar: {fileID: 0}
 --- !u!1 &2057296708
 GameObject:
   m_ObjectHideFlags: 0

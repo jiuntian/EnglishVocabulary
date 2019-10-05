@@ -24,6 +24,7 @@
 
 public static class GPGSIds
 {
+        public const string achievement_welcome_to_elingo = "CgkI-s-z6uMbEAIQBA"; // <GPGSID>
         public const string leaderboard_score_in_one_level = "CgkI-s-z6uMbEAIQAQ"; // <GPGSID>
         public const string achievement_gain_1000_experiences = "CgkI-s-z6uMbEAIQAw"; // <GPGSID>
         public const string achievement_first_100_experiences = "CgkI-s-z6uMbEAIQAg"; // <GPGSID>

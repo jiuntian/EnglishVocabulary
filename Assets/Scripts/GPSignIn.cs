@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SocialPlatforms;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 
 public class GPSignIn : MonoBehaviour {
 
-	private Text signInButtonText;
-    private Text authStatus;
-	private GameObject achievementButton;
+	private static Text signInButtonText;
+    private static Text authStatus;
+	
+	public GameObject levelBar;
 
 	// Use this for initialization
 	void Start () {
@@ -17,13 +19,30 @@ public class GPSignIn : MonoBehaviour {
             GameObject.Find("Loginbutton").GetComponentInChildren<Text>();
         authStatus = GameObject.Find("authStatus").GetComponentInChildren<Text>();
 		PlayGamesPlatform.Instance.Authenticate(SignInCallback, true);
-		achievementButton = GameObject.Find("AchievementButton");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		achievementButton.SetActive(Social.localUser.authenticated);
+
 	}
+
+	public static void PreparePlayService () {
+        //  ADD THIS CODE BETWEEN THESE COMMENTS
+
+        // Create client configuration
+        PlayGamesClientConfiguration config = 
+        new PlayGamesClientConfiguration.Builder().Build ();
+
+        // Enable debugging output (recommended)
+        PlayGamesPlatform.DebugLogEnabled = true;
+
+        // Initialize and activate the platform
+        PlayGamesPlatform.InitializeInstance (config);
+        PlayGamesPlatform.Activate ();
+        print("PlayPlatformActivated");
+		PlayGamesPlatform.Instance.Authenticate(SignInCallback, true);
+        // END THE CODE TO PASTE INTO START
+    }
 
 	public void SignIn () {
 		if (!PlayGamesPlatform.Instance.localUser.authenticated) {
@@ -40,7 +59,7 @@ public class GPSignIn : MonoBehaviour {
         }
 	}
 
-	public void SignInCallback(bool success) {
+	public static void SignInCallback(bool success) {
         if (success) {
             Debug.Log("(Elingo) Signed in!");
             
@@ -53,7 +72,7 @@ public class GPSignIn : MonoBehaviour {
             Debug.Log("(Lollygagger) Sign-in failed...");
             
             // Show failure message
-            signInButtonText.text = "Sign in";
+            signInButtonText.text = "Sign In";
             authStatus.text = "Sign-in failed";
         }
     }
@@ -67,4 +86,13 @@ public class GPSignIn : MonoBehaviour {
         }
     }
 	
+	public void ShowLeaderboards() {
+		print("show leaderboard");
+        if (PlayGamesPlatform.Instance.localUser.authenticated) {
+            PlayGamesPlatform.Instance.ShowLeaderboardUI();
+        }
+        else {
+          Debug.Log("Cannot show leaderboard: not authenticated");
+        }
+    }
 }

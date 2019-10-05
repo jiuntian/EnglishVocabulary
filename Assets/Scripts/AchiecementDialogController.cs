@@ -3,21 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using GooglePlayGames;
 
 public class AchiecementDialogController : MonoBehaviour {
 
 	[Header("References")]
 	public Transform achievementDialog;
-	public Button hideButton;
+	private GameObject achievementButton;
+	private Text signInButtonText;
 
 	// Use this for initialization
 	void Start () {
-		
+		achievementButton = GameObject.Find("PlayAchievementButton");
+		signInButtonText =
+            GameObject.Find("Loginbutton").GetComponentInChildren<Text>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		achievementButton.SetActive(PlayGamesPlatform.Instance.localUser.authenticated);
+		if(PlayGamesPlatform.Instance.localUser.authenticated){
+			signInButtonText.text = "Sign out";
+		}
 	}
 
 	public void ShowPopUp(){

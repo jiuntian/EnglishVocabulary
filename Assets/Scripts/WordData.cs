@@ -46,7 +46,7 @@ public class WordData {
 		dataDict.Add ("race", new string[] {
 			"compete with another or others to see who is fastest at doing things",
 			"Lumba",
-			"种族",
+			"赛跑",
 			"سباق",
 			"That horse won the race and golden prize",
 			"",
@@ -102,7 +102,7 @@ public class WordData {
 		dataDict.Add ("number", new string[] {
 			"an arithmetical value, expressed by a word, symbol, or figure, representing a particular quantity ",
 			"nombor",
-			"数",
+			"号码",
 			"رقم",
 			"Nouns are singular or plural in number",
 			"",
@@ -142,7 +142,7 @@ public class WordData {
 		dataDict.Add ("stretch", new string[] {
 			"an act of stretching one's limbs or body.",
 			"regangan",
-			"伸展",
+			"拉伸",
 			"تمدد",
 			"Stretching exercises makes your body flexible",
 			"",
@@ -150,7 +150,7 @@ public class WordData {
 		dataDict.Add ("tick", new string[] {
 			"mark (an item) with a check mark, typically to show that it has been chosen",
 			"semak",
-			"蜱",
+			"打勾",
 			"علامة",
 			"I always tick the tasks that I have finished",
 			"",
@@ -435,14 +435,6 @@ public class WordData {
 			"I've got boxes of old clothes in the attic",
 			"",
 		});
-		dataDict.Add ("", new string[] {
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-		});
 		dataDict.Add ("trunk", new string[] {
 			"the thick main stem of a tree",
 			"batang",
@@ -454,7 +446,7 @@ public class WordData {
 		dataDict.Add ("tusk", new string[] {
 			"either of the two long, pointed teeth of some animals such as elephants",
 			"Gading",
-			"长牙",
+			"象牙",
 			"ناب بارز",
 			"Elephant 's tusks are large teeth growing from the upper jaw.",
 			"",
@@ -526,7 +518,7 @@ public class WordData {
 		dataDict.Add ("cinema", new string[] {
 			"a theatre where people pay to watch films",
 			"pawagam",
-			"电影",
+			"电影院",
 			"سينما",
 			"I saw a good film at the cinema yesterday",
 			"",

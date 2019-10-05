@@ -29,7 +29,7 @@ public class WordHunt : MonoBehaviour {
     private int totalInsertedWordsCount;
     private int score;
 
-    private Dictionary<string, string[]> dataDict = new Dictionary<string, string[]>();
+    private Dictionary<string, string[]> dataDict = new Dictionary<string, string[]> ();
 
     [Header ("Settings")]
     public bool invertedWordsAreValid;
@@ -87,7 +87,7 @@ public class WordHunt : MonoBehaviour {
 
     public void Setup () {
 
-        PreparePlayService();
+        GPSignIn.PreparePlayService ();
 
         PrepareData ();
 
@@ -103,25 +103,8 @@ public class WordHunt : MonoBehaviour {
 
     }
 
-    private void PreparePlayService() {
-        //  ADD THIS CODE BETWEEN THESE COMMENTS
-
-        // Create client configuration
-        PlayGamesClientConfiguration config = new 
-            PlayGamesClientConfiguration.Builder()
-            .Build();
-
-        // Enable debugging output (recommended)
-        PlayGamesPlatform.DebugLogEnabled = true;
-        
-        // Initialize and activate the platform
-        PlayGamesPlatform.InitializeInstance(config);
-        PlayGamesPlatform.Activate();
-       // END THE CODE TO PASTE INTO START
-    }
-
     private void PrepareData () {
-        WordData.UpdateData(dataDict);
+        WordData.UpdateData (dataDict);
     }
 
     private void PrepareWords () {
@@ -323,7 +306,7 @@ public class WordHunt : MonoBehaviour {
 
             print ("<b>" + word.ToUpper () + "</b> was found!");
 
-            GenerateDialog(word);
+            GenerateDialog (word);
 
             ScrollViewWords.instance.CheckWord (word);
 
@@ -347,13 +330,46 @@ public class WordHunt : MonoBehaviour {
     IEnumerator ShowCongratulationDialog () {
         endTime = Time.time;
         float timeDiff = endTime - startTime;
-        score = (int) (timeDiff / totalInsertedWordsCount*100.0);
-        print("Score: "+score);
-        scoreText.text = ""+score;
-        int currentExp = PlayerPrefs.GetInt("exp");
-        PlayerPrefs.SetInt("exp", currentExp+score);
-        print("Current Exp: "+PlayerPrefs.GetInt("exp"));
+        score = (int) (totalInsertedWordsCount / timeDiff * 1500.0);
+        print ("Score: " + score);
+        scoreText.text = "" + score;
+        int currentExp = PlayerPrefs.GetInt ("exp") + score;
+        PlayerPrefs.SetInt ("exp", currentExp);
+        print ("Current Exp: " + PlayerPrefs.GetInt ("exp"));
         congratulation.DOMoveY (500, .6f).SetEase (Ease.OutBack);
+        if (Social.localUser.authenticated) {
+            // Unlock the "welcome" achievement, it is OK to
+            // unlock multiple times, only the first time matters.
+            PlayGamesPlatform.Instance.ReportProgress (
+                "CgkI-s-z6uMbEAIQBA",
+                100.0f, (bool success) => {
+                    Debug.Log ("(Elingo) Welcome Unlock: " +
+                        success);
+                });
+            // Increment the "sharpshooter" achievement
+            if (currentExp >= 100)
+                PlayGamesPlatform.Instance.ReportProgress (
+                    "CgkI-s-z6uMbEAIQAg",
+                    100.0f,
+                    (bool success) => {
+                        Debug.Log ("(Elingo) Experiences Increment: " +
+                            success);
+                    });
+            if(currentExp >=1000)
+            PlayGamesPlatform.Instance.ReportProgress (
+                    "CgkI-s-z6uMbEAIQAw",
+                    100.0f,
+                    (bool success) => {
+                        Debug.Log ("(Elingo) Experiences Increment 1k: " +
+                            success);
+                    });
+            PlayGamesPlatform.Instance.ReportScore(currentExp,
+                    "CgkI-s-z6uMbEAIQAQ",
+                    (bool success) =>
+                    {
+                        Debug.Log("(Lollygagger) Leaderboard update success: " + success);
+                    });
+        }
         yield return new WaitForSeconds (2);
         congratulation.DOMoveY (-500, .6f).SetEase (Ease.OutBack);
     }
@@ -432,7 +448,7 @@ public class WordHunt : MonoBehaviour {
             ScrollViewWords.instance.SpawnWordCell (insertedWords[i], delay);
             delay += .05f;
         }
-        print("Game starting!");
+        print ("Game starting!");
         startTime = Time.time;
     }
 
