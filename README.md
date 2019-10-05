@@ -1,9 +1,4 @@
-# WordHunt (Prototype)
-
-<!-- ![Menu](https://i.imgur.com/zIGl8oJ.png) -->
-
-<!-- ![Screenshot](https://i.imgur.com/FfcRzFv.png) -->
-
+# Elingo (Prototype)
 
 ## Description
 
