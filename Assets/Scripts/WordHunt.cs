@@ -30,6 +30,7 @@ public class WordHunt : MonoBehaviour {
     private int score;
 
     private Dictionary<string, string[]> dataDict = new Dictionary<string, string[]> ();
+    private Texture2D vocabSprite;
 
     [Header ("Settings")]
     public bool invertedWordsAreValid;
@@ -74,7 +75,10 @@ public class WordHunt : MonoBehaviour {
     public Text chinese;
     public Text arabic;
     public Text sentences;
+    public Text definition;
     public GameObject wordData;
+    public RawImage image;
+    public GameObject closeButton;
     // TODO: image
     [Space]
 
@@ -380,6 +384,19 @@ public class WordHunt : MonoBehaviour {
         chinese.text = dataDict[word][2];
         arabic.text = dataDict[word][3];
         sentences.text = dataDict[word][4];
+        definition.text = dataDict[word][0];
+        vocabSprite = Resources.Load("VocabImage/"+word) as Texture2D;
+        image.texture = vocabSprite;
+        StartCoroutine(HideCloseButtonForOneSecond());
+        //image
+    }
+
+    IEnumerator HideCloseButtonForOneSecond(){
+        //disable it
+        closeButton.SetActive(false);
+        yield return new WaitForSeconds(1.5f);
+        //show it
+        closeButton.SetActive(true);
     }
 
     public void LetterHover (int x, int y) {
