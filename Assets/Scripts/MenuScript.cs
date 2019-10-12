@@ -15,6 +15,7 @@ public class MenuScript : MonoBehaviour {
     public TextAsset[] themes;
 
     public Transform miniMenu;
+    public GameObject evaluateButton;
 
     private void Start()
     {
@@ -42,6 +43,7 @@ public class MenuScript : MonoBehaviour {
         canvas.blocksRaycasts = false;
 
         miniMenu.DOMoveY(0,.6f).SetEase(Ease.OutBack);
+        evaluateButton.SetActive(false);
         
     }
 
