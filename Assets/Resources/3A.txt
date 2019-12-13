@@ -1,1 +1,1 @@
-junction,opposite,attic,trunk,tusk,carnivorous,mammal,playground,amusement park,museum,bookshop,cinema,hospital,school
+junction,opposite,attic,trunk,tusk,carnivorous,mammal,playground,museum,bookshop,cinema,hospital,school,recite,lecturer,intelligent,station,design,regular,advice,hopscotch

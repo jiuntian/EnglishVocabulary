@@ -74,6 +74,7 @@ public class WordHunt : MonoBehaviour {
     public Text malay;
     public Text chinese;
     public Text arabic;
+    public Text thai;
     public Text sentences;
     public Text definition;
     public GameObject wordData;
@@ -383,6 +384,7 @@ public class WordHunt : MonoBehaviour {
         malay.text = dataDict[word][1];
         chinese.text = dataDict[word][2];
         arabic.text = dataDict[word][3];
+        thai.text = dataDict[word][5];
         sentences.text = dataDict[word][4];
         definition.text = dataDict[word][0];
         vocabSprite = Resources.Load("VocabImage/"+word) as Texture2D;
